@@ -1,0 +1,21 @@
+执行顺序：
+from..
+where...
+group by..
+select..
+order by .. desc/asc
+where 子句可以用到下列运算符
+算术运算符
+逻辑运算符
+字符串匹配运算符  包括like,not like, regexp
+集合成员资格运算符 包括in not in 
+谓词，包括exists，all，some，unique
+聚合函数 包括avg,min,max,sum和count
+还可以是另外一个select语句
+select语句完整语法：
+select 目标表的列名或者列表达式序列
+from 基本表名和（或）视图序列
+【where 行条件表达式】
+【group by 列名序列】
+   【having 组条件表达式】
+【order by 列名[asc|desc]】
