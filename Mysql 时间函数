@@ -1,0 +1,7 @@
+DATEDIFF()函数，该函数用于返回两个日期之间的天数
+定义和用法 DATEDIFF() 函数返回两个日期之间的天数。date1-date2
+语法DATEDIFF(date1,date2)
+date1 和 date2 参数是合法的日期或日期/时间表达式。
+注释：只有值的日期部分参与计算。
+SELECT DATEDIFF('2008-12-29','2008-12-30') AS DiffDate
+结果：DiffDate -1
