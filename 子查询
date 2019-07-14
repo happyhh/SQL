@@ -1,0 +1,37 @@
+
+select 子查询
+--子查询必须在圆括号内
+--子查询的select子句中只能有一个列，除非主查询中有多个列，用于与子查询选中的列相比较
+--子查询不能使用order by 不过主查询可以。在子查询中，group by 可以起到同order by 相同的作用
+--返回多行数据的子查询只能同多值操作符一起使用，比如IN 操作符 
+--子查询不能直接用在集合函数中
+--Between 操作符不能同子查询一起使用，但是between 操作符可以用在子查询中
+基本语法如下:
+select colunm_name 
+from table1,table2
+where column_name  operator
+     (select column_name
+from table 1,table2
+[where] )
+select * from table1
+where ID in (select id from table1 where salary > 100)
+select a,b,c from table1 where a IN (select d from table2 ) 或者: select a,b,c from table1 where a IN (1,2,3)
+说明：四表联查问题
+select * from a left inner join b on a.a=b.b right inner join c on a.a=c.c inner join d on a.a=d.d where
+条sql 语句搞定数据库分页
+select top 10 b.* from (select top 20 主键字段,排序字段 from 表名 order by 排序字段 desc) a,表名 b where b.主键字段 = a.主键字段 order by a.排序字段
+前10条记录
+select top 10 * form table1 where 范围
+选择在每一组b值相同的数据中对应的a最大的记录的所有信息(类似这样的用法可以用于论坛每月排行榜,每月热销产品分析,按科目成绩排名,等等.)
+select a,b,c from tablename ta where a=(select max(a) from tablename tb where tb.b=ta.b)
+选择从10到15的记录
+select top 5 * from (select top 15 * from table order by id asc) table_别名 order by id desc
+
+开头到N条记录
+Select Top N * From 表
+-------------------------------
+N到M条记录(要有主索引ID)
+Select Top M-N * From 表 Where ID in (Select Top M ID From 表) Order by ID Desc
+----------------------------------
+N到结尾记录
+Select Top N * From 表 Order by ID Desc
