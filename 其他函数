@@ -1,0 +1,4 @@
+select id,
+concat_ws(",collect_set(if(type = '立减'，"1",""))) as new_type #去重
+from table
+group by id
