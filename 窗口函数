@@ -1,0 +1,7 @@
+窗口函数兼具分组 && 排序 功能
+排序：
+row_number()over(partirion by column order by column)  相同排序跳序号位
+rank()over(partirion by column order by column)  相同排序不跳序号位(允许并排次序)
+dense_rank(partirion by column order by column)  不存在重复的序号位
+
+
